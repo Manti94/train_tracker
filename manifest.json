@@ -1,7 +1,7 @@
 {
-  "name": "EISERN — Krafttraining",
-  "short_name": "EISERN",
-  "description": "Persönlicher Tracker für Chantis 4-Tage-Split",
+  "name": "Training & Ernährung",
+  "short_name": "Training",
+  "description": "Persönlicher Trainings- und Ernährungs-Tracker",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

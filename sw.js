@@ -1,5 +1,5 @@
-// EISERN Service Worker — Offline support
-const CACHE_NAME = 'eisern-v1';
+// Service Worker — Offline support
+const CACHE_NAME = 'eisern-v2';
 const ASSETS = [
   './',
   './index.html',
