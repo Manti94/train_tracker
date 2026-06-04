@@ -343,6 +343,95 @@
     .edit-form input:focus { outline: none; border-color: var(--accent); }
     .edit-actions { display: flex; gap: 10px; margin-top: 18px; }
     .edit-actions .btn { flex: 1; justify-content: center; }
+
+    /* TOP BAR (Profil) */
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+    .topbar .who { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-muted); font-weight: 600; }
+    .topbar .who .dot { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), #5d7d4a); color: #fff; display: grid; place-items: center; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 14px; }
+    .logout-btn { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 7px 12px; border-radius: 8px; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; }
+    .logout-btn:hover { border-color: var(--danger); color: var(--danger); }
+
+    /* PRIMARY TAB BAR (Training/Ernährung/Gewicht/Bewegung/Schlaf) */
+    .tabbar { display: flex; gap: 4px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 5px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .tabbar::-webkit-scrollbar { display: none; }
+    .tabbar button {
+      flex: 1 0 auto; background: transparent; border: none; color: var(--text-muted);
+      padding: 9px 8px; font-family: inherit; font-size: 10px; font-weight: 800; letter-spacing: 0.04em;
+      text-transform: uppercase; cursor: pointer; border-radius: 10px; transition: all 0.15s;
+      display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 60px;
+    }
+    .tabbar button .icon { width: 18px; height: 18px; }
+    .tabbar button.active { background: var(--accent); color: #fff; }
+
+    /* LOGIN */
+    .login-wrap { max-width: 420px; margin: 8vh auto 0; padding: 0 20px; }
+    .login-logo { text-align: center; margin-bottom: 28px; }
+    .login-logo .mark { width: 56px; height: 56px; border-radius: 14px; background: linear-gradient(135deg, var(--accent), #5d7d4a); display: inline-grid; place-items: center; color: #fff; }
+    .login-logo .ttl { font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; margin-top: 12px; }
+    .login-logo .sub { color: var(--text-muted); font-size: 13px; margin-top: 4px; }
+    .profile-pick { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; margin-bottom: 10px; cursor: pointer; display: flex; align-items: center; gap: 12px; transition: all 0.15s; }
+    .profile-pick:hover { border-color: var(--accent); }
+    .profile-pick .dot { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), #5d7d4a); color: #fff; display: grid; place-items: center; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 18px; }
+    .profile-pick .nm { font-weight: 700; font-size: 16px; flex: 1; }
+    .login-err { color: var(--danger); font-size: 13px; margin: 8px 0; text-align: center; }
+    .login-form label { display: block; font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 14px 0 5px; }
+    .login-form input { width: 100%; background: #fff; border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 13px; font-family: inherit; font-size: 16px; -webkit-appearance: none; }
+    .login-form input:focus { outline: none; border-color: var(--accent); }
+    .link-btn { background: none; border: none; color: var(--accent-hi); font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 6px; }
+
+    /* GENERIC LOG (Gewicht/Bewegung/Schlaf) */
+    .log-form { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px; margin-bottom: 16px; }
+    .log-form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .log-form label { display: block; font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 5px; }
+    .log-form .field-block { margin-bottom: 12px; }
+    .log-form input { width: 100%; background: #fff; border: 1px solid var(--border); color: var(--text); border-radius: 9px; padding: 12px; font-family: inherit; font-size: 16px; -webkit-appearance: none; }
+    .log-form input:focus { outline: none; border-color: var(--accent); }
+    .log-item { display: flex; align-items: center; justify-content: space-between; background: var(--surface); border: 1px solid var(--border); border-radius: 11px; padding: 13px 16px; margin-bottom: 8px; }
+    .log-item .li-date { font-weight: 700; font-size: 14px; }
+    .log-item .li-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+    .log-item .li-val { font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 24px; color: var(--accent); }
+    .log-item .li-val small { font-size: 12px; color: var(--text-muted); font-weight: 700; }
+    .log-del { background: transparent; border: none; color: var(--text-dim); font-size: 20px; cursor: pointer; padding: 0 4px; margin-left: 10px; }
+    .log-del:hover { color: var(--danger); }
+
+    /* RANGE / Schlafqualität */
+    .range-wrap { display: flex; align-items: center; gap: 12px; }
+    input[type=range] { flex: 1; -webkit-appearance: none; height: 6px; border-radius: 3px; background: var(--surface-hi); }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); cursor: pointer; box-shadow: 0 2px 6px rgba(127,165,95,0.4); }
+    .range-val { font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 26px; color: var(--accent); width: 54px; text-align: center; }
+
+    /* CARDIO ADD */
+    .cardio-row { display: grid; grid-template-columns: 1fr 70px 26px; gap: 8px; align-items: center; margin-bottom: 8px; }
+    .cardio-row input { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 10px 8px; font-family: inherit; font-size: 14px; -webkit-appearance: none; }
+
+    /* MEAL CHECK */
+    .meal-check { background: transparent; border: 1px solid var(--border); color: var(--text-muted); width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; cursor: pointer; flex-shrink: 0; }
+    .meal-check:hover { border-color: var(--success); color: var(--success); }
+    .meal-check.checked { background: var(--success); border-color: var(--success); color: #fff; }
+    .meal-card.done { border-color: var(--success); }
+    .meal-card.done .meal-name { color: var(--accent-hi); }
+
+    /* FOOD SEARCH MODAL */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(40,34,24,0.45); display: flex; align-items: flex-end; justify-content: center; z-index: 50; padding: 0; }
+    .modal { background: var(--bg); border-radius: 18px 18px 0 0; width: 100%; max-width: 640px; max-height: 88vh; overflow-y: auto; padding: 20px 18px calc(20px + var(--safe-bottom)); border: 1px solid var(--border); }
+    .modal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .modal-head .ttl { font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 22px; }
+    .modal-close { background: var(--surface-hi); border: 1px solid var(--border); color: var(--text); width: 34px; height: 34px; border-radius: 8px; cursor: pointer; font-size: 18px; }
+    .food-search-input { width: 100%; background: #fff; border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 13px; font-family: inherit; font-size: 16px; -webkit-appearance: none; margin-bottom: 4px; }
+    .food-search-input:focus { outline: none; border-color: var(--accent); }
+    .fs-hint { font-size: 12px; color: var(--text-muted); margin: 8px 2px; }
+    .fs-result { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 7px; cursor: pointer; }
+    .fs-result:hover { border-color: var(--accent); }
+    .fs-result .fr-name { font-weight: 700; font-size: 14px; }
+    .fs-result .fr-macros { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+    .fs-result .fr-tag { font-size: 9px; font-weight: 800; letter-spacing: 0.08em; padding: 3px 7px; border-radius: 100px; text-transform: uppercase; }
+    .fs-tag-db { background: rgba(127,165,95,0.18); color: var(--accent-hi); }
+    .fs-tag-off { background: rgba(200,153,104,0.18); color: var(--warn); }
+    .fs-section { font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin: 14px 2px 8px; }
+    .fs-manual { background: var(--surface); border: 1px dashed var(--border); border-radius: 12px; padding: 14px; margin-top: 10px; }
+    .fs-manual .row3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .fs-manual input { width: 100%; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 10px 6px; font-family: inherit; font-size: 14px; text-align: center; -webkit-appearance: none; }
+    .fs-spinner { text-align: center; padding: 16px; color: var(--text-muted); font-size: 13px; }
   </style>
 </head>
 <body>
@@ -356,52 +445,80 @@
       1: {
         name: 'GLUTES',
         exercises: [
-          { muscle: 'GLUTES', name: 'Smith Machine Glute Bridge', sets: 3, repRange: '6-10', type: 'Straight Set', cadence: '2s Hold in der vollen Kontraktion', targetRIR: [1, 1, 0] },
-          { muscle: 'HAMS', name: 'Dumbbell Romanian Deadlift', sets: 2, repRange: '5-8', type: 'Straight Set', cadence: '1s Pause in der vollen Dehnung', targetRIR: [1, 0] },
-          { muscle: 'HAMS', name: 'Seated Leg Curl', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
-          { muscle: 'GLUTES', name: 'Unilateral Horizontal Leg Press', sets: 2, repRange: '5-8', type: 'Straight Set', cadence: '1s Pause in der vollen Dehnung', targetRIR: [1, 0] },
-          { muscle: 'GLUTES', name: 'Hip Abductor', sets: 2, repRange: '8-12', type: 'Straight Set / MRP*2', cadence: 'Pause in beiden Umkehrpunkten', targetRIR: [0, 0] },
-          { muscle: 'GLUTES', name: 'Cable Glute Kickback (Standing)', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '1s Pause in der Kontraktion', targetRIR: [0, 0] },
-          { muscle: 'ABS', name: 'Plank', sets: 2, repRange: '30-60s', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
+          { muscle: 'GESÄSS', name: 'Glute Bridge (Multipresse)', sets: 3, repRange: '6-10', type: 'Straight Set', cadence: '2s Halten in der vollen Kontraktion', targetRIR: [1, 1, 0] },
+          { muscle: 'BEINBEUGER', name: 'Rumänisches Kreuzheben (Kurzhantel)', sets: 2, repRange: '5-8', type: 'Straight Set', cadence: '1s Pause in der vollen Dehnung', targetRIR: [1, 0] },
+          { muscle: 'BEINBEUGER', name: 'Beinbeuger sitzend', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
+          { muscle: 'GESÄSS', name: 'Beinpresse horizontal (einbeinig)', sets: 2, repRange: '5-8', type: 'Straight Set', cadence: '1s Pause in der vollen Dehnung', targetRIR: [1, 0] },
+          { muscle: 'GESÄSS', name: 'Abduktoren-Maschine', sets: 2, repRange: '8-12', type: 'Straight Set / MRP*2', cadence: 'Pause in beiden Umkehrpunkten', targetRIR: [0, 0] },
+          { muscle: 'GESÄSS', name: 'Kabel-Kickback Gesäß (stehend)', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '1s Pause in der Kontraktion', targetRIR: [0, 0] },
+          { muscle: 'BAUCH', name: 'Unterarmstütz (Plank)', sets: 2, repRange: '30-60s', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
         ],
       },
       2: {
         name: 'UPPER',
         exercises: [
-          { muscle: 'DELTS (S)', name: 'Standing Cable Y-Raise', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
-          { muscle: 'DELTS (F)', name: 'Plate Loaded Shoulder Press Machine', sets: 2, repRange: '6-10', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
-          { muscle: 'DELTS (S)', name: 'Standing Unilateral Cable Lateral Raise', sets: 1, repRange: '8-12', type: 'MRP*2', cadence: '1s Pause in der vollen Dehnung', targetRIR: [0] },
-          { muscle: 'LATS', name: 'Wide Grip Lat Pulldown', sets: 2, repRange: '6-10', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
-          { muscle: 'LATS', name: 'Single Arm Cable Row', sets: 2, repRange: '6-10', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
-          { muscle: 'UPPER BACK', name: 'Upper Back Cable Row', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
-          { muscle: 'BICEPS', name: 'Preacher Curl Machine', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
-          { muscle: 'ABS', name: 'Machine Ab Crunch', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
+          { muscle: 'SCHULTER (SEITL.)', name: 'Y-Raise am Kabel (stehend)', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
+          { muscle: 'SCHULTER (VORN)', name: 'Schulterpresse-Maschine', sets: 2, repRange: '6-10', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
+          { muscle: 'SCHULTER (SEITL.)', name: 'Seitheben am Kabel (einarmig, stehend)', sets: 1, repRange: '8-12', type: 'MRP*2', cadence: '1s Pause in der vollen Dehnung', targetRIR: [0] },
+          { muscle: 'LATISSIMUS', name: 'Latzug breit', sets: 2, repRange: '6-10', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
+          { muscle: 'LATISSIMUS', name: 'Kabelrudern (einarmig)', sets: 2, repRange: '6-10', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
+          { muscle: 'OBERER RÜCKEN', name: 'Oberer-Rücken-Kabelrudern', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
+          { muscle: 'SCHULTER (HINTEN)', name: 'Reverse Butterfly (hintere Schulter)', sets: 2, repRange: '12-15', type: 'Straight Set', cadence: '1s Pause in der Kontraktion', targetRIR: [0, 0] },
+          { muscle: 'BAUCH', name: 'Bauchmaschine (Crunch)', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
         ],
       },
       3: {
         name: 'MIXED LOWER',
         exercises: [
-          { muscle: 'GLUTES', name: 'Smith Machine Glute Bridge', sets: 3, repRange: '6-10', type: 'Straight Set', cadence: '2s Hold in der vollen Kontraktion', targetRIR: [1, 1, 0] },
-          { muscle: 'GLUTES', name: 'Straight Leg Cable Kick Back', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
-          { muscle: 'HAMS', name: 'Seated Leg Curl', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '1s Pause in der vollen Dehnung', targetRIR: [0, 0] },
-          { muscle: 'ADDS', name: 'Hip Adductor', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: 'Pause in beiden Umkehrpunkten', targetRIR: [0, 0] },
-          { muscle: 'QUADS', name: 'Leg Extension', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '2s Hold in der Kontraktion', targetRIR: [0, 0] },
-          { muscle: 'QUADS', name: '45° Leg Press', sets: 2, repRange: '6-10', type: 'Straight Set', cadence: '1s Pause in der vollen Dehnung', targetRIR: [1, 0] },
-          { muscle: 'ABS', name: 'Plank', sets: 2, repRange: '30-60s', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
+          { muscle: 'GESÄSS', name: 'Glute Bridge (Multipresse)', sets: 3, repRange: '6-10', type: 'Straight Set', cadence: '2s Halten in der vollen Kontraktion', targetRIR: [1, 1, 0] },
+          { muscle: 'GESÄSS', name: 'Kabel-Kickback gestrecktes Bein', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
+          { muscle: 'BEINBEUGER', name: 'Beinbeuger sitzend', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '1s Pause in der vollen Dehnung', targetRIR: [0, 0] },
+          { muscle: 'ADDUKTOREN', name: 'Adduktoren-Maschine', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: 'Pause in beiden Umkehrpunkten', targetRIR: [0, 0] },
+          { muscle: 'QUADRIZEPS', name: 'Beinstrecker', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '2s Halten in der Kontraktion', targetRIR: [0, 0] },
+          { muscle: 'QUADRIZEPS', name: 'Beinpresse 45°', sets: 2, repRange: '6-10', type: 'Straight Set', cadence: '1s Pause in der vollen Dehnung', targetRIR: [1, 0] },
+          { muscle: 'BAUCH', name: 'Unterarmstütz (Plank)', sets: 2, repRange: '30-60s', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
         ],
       },
       4: {
         name: 'POSTERIOR',
         exercises: [
-          { muscle: 'GLUTES', name: 'Smith Machine Glute Bridge', sets: 3, repRange: '6-10', type: 'Straight Set', cadence: '2s Hold in der vollen Kontraktion', targetRIR: [1, 1, 0] },
-          { muscle: 'GLUTES', name: '45° Hip Extension', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: 'Pause in beiden Umkehrpunkten', targetRIR: [0, 0] },
-          { muscle: 'GLUTES', name: 'Straight Leg Cable Kick Back', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
-          { muscle: 'HAMS', name: 'Lying Leg Curl', sets: 1, repRange: '8-12', type: 'MRP*2', cadence: '-', targetRIR: [0] },
-          { muscle: 'DELTS (S)', name: 'Seitheben (Maschine / Kurzhanteln)', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
-          { muscle: 'DELTS (F)', name: 'Schulterdrücken (Multipresse / Kurzhanteln)', sets: 2, repRange: '6-10', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
-          { muscle: 'ABS', name: 'Leg Raises', sets: 2, repRange: 'AMRAP', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
+          { muscle: 'GESÄSS', name: 'Glute Bridge (Multipresse)', sets: 3, repRange: '6-10', type: 'Straight Set', cadence: '2s Halten in der vollen Kontraktion', targetRIR: [1, 1, 0] },
+          { muscle: 'GESÄSS', name: 'Hyperextension 45°', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: 'Pause in beiden Umkehrpunkten', targetRIR: [0, 0] },
+          { muscle: 'GESÄSS', name: 'Kabel-Kickback gestrecktes Bein', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
+          { muscle: 'BEINBEUGER', name: 'Beinbeuger liegend', sets: 1, repRange: '8-12', type: 'MRP*2', cadence: '-', targetRIR: [0] },
+          { muscle: 'SCHULTER (SEITL.)', name: 'Seitheben (Maschine/Kurzhantel)', sets: 2, repRange: '8-12', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
+          { muscle: 'SCHULTER (VORN)', name: 'Schulterdrücken (Multipresse/Kurzhantel)', sets: 2, repRange: '6-10', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
+          { muscle: 'BAUCH', name: 'Beinheben', sets: 2, repRange: 'AMRAP', type: 'Straight Set', cadence: '-', targetRIR: [0, 0] },
         ],
       },
+    };
+
+    // Migration: alte (englische) Übungsnamen -> neue deutsche Namen,
+    // damit Verlauf/Fortschritt/„letzte"-Anzeige weiter zusammenpassen.
+    const EX_RENAME_MAP = {
+      'Smith Machine Glute Bridge': 'Glute Bridge (Multipresse)',
+      'Dumbbell Romanian Deadlift': 'Rumänisches Kreuzheben (Kurzhantel)',
+      'Seated Leg Curl': 'Beinbeuger sitzend',
+      'Unilateral Horizontal Leg Press': 'Beinpresse horizontal (einbeinig)',
+      'Hip Abductor': 'Abduktoren-Maschine',
+      'Cable Glute Kickback (Standing)': 'Kabel-Kickback Gesäß (stehend)',
+      'Plank': 'Unterarmstütz (Plank)',
+      'Standing Cable Y-Raise': 'Y-Raise am Kabel (stehend)',
+      'Plate Loaded Shoulder Press Machine': 'Schulterpresse-Maschine',
+      'Standing Unilateral Cable Lateral Raise': 'Seitheben am Kabel (einarmig, stehend)',
+      'Wide Grip Lat Pulldown': 'Latzug breit',
+      'Single Arm Cable Row': 'Kabelrudern (einarmig)',
+      'Upper Back Cable Row': 'Oberer-Rücken-Kabelrudern',
+      'Machine Ab Crunch': 'Bauchmaschine (Crunch)',
+      'Straight Leg Cable Kick Back': 'Kabel-Kickback gestrecktes Bein',
+      'Hip Adductor': 'Adduktoren-Maschine',
+      'Leg Extension': 'Beinstrecker',
+      '45° Leg Press': 'Beinpresse 45°',
+      '45° Hip Extension': 'Hyperextension 45°',
+      'Lying Leg Curl': 'Beinbeuger liegend',
+      'Seitheben (Maschine / Kurzhanteln)': 'Seitheben (Maschine/Kurzhantel)',
+      'Schulterdrücken (Multipresse / Kurzhanteln)': 'Schulterdrücken (Multipresse/Kurzhantel)',
+      'Leg Raises': 'Beinheben',
     };
 
     const TRANSITIONS = {
@@ -534,6 +651,24 @@
 
     const FOOD_BY_NAME = Object.fromEntries(FOOD_DB.map(f => [f.name, f]));
 
+    // Kombinierter Index aus Standard-DB + eigenen Lebensmitteln des Profils
+    let FOOD_INDEX = Object.assign({}, FOOD_BY_NAME);
+    let FOOD_NAMES_SORTED = FOOD_DB.map(f => f.name).sort((a, b) => a.localeCompare(b, 'de'));
+    function rebuildFoodIndex() {
+      FOOD_INDEX = Object.assign({}, FOOD_BY_NAME);
+      (state.customFoods || []).forEach(f => { FOOD_INDEX[f.name] = f; });
+      FOOD_NAMES_SORTED = Object.keys(FOOD_INDEX).sort((a, b) => a.localeCompare(b, 'de'));
+    }
+    function findFood(name) { return FOOD_INDEX[name] || null; }
+
+    // Startwerte Gewicht (aus Gewicht.pdf, kg) — nur für Migrations-Profil "Chantal"
+    const SEED_WEIGHT = {
+      '2026-05-20': '70.3', '2026-05-21': '70.05', '2026-05-22': '69.5', '2026-05-23': '69.5',
+      '2026-05-24': '69.5', '2026-05-25': '69.7', '2026-05-26': '69.5', '2026-05-27': '69.15',
+      '2026-05-28': '69.2', '2026-05-29': '69.2', '2026-05-30': '68.8', '2026-05-31': '68.7',
+      '2026-06-01': '69.1', '2026-06-02': '69.1', '2026-06-03': '68.7', '2026-06-04': '68.9',
+    };
+
     // Baseline-Ernährungsplan (aus Chantis Plan). Mengen in g, bei piece:true in Stück.
     const NUTRITION_BASELINE = [
       { name: 'Mahlzeit 1', items: [
@@ -572,7 +707,13 @@
     // STATE & PERSISTENCE
     // ========================================================
     const state = {
-      mode: 'training',      // training | nutrition
+      // Profil / Login
+      profileId: null,
+      profileName: null,
+      loginError: '',
+      loginCreating: false,
+      // App
+      mode: 'training',      // training | nutrition | weight | movement | sleep
       view: 'home',          // home | workout | history | progress | history-detail
       workouts: [],
       current: null,
@@ -582,8 +723,14 @@
       // Ernährung
       nutriView: 'day',      // day | plan | history
       nutritionPlan: null,   // Baseline-Vorlage (editierbar)
-      nutritionDays: {},     // { 'YYYY-MM-DD': { meals: [...] } }
+      nutritionDays: {},     // { 'YYYY-MM-DD': { meals: [...], completed?, mealsDone?... } }
       nutriDate: todayKey(),
+      customFoods: [],       // [{name,c,p,f,piece?}]
+      foodSearch: null,      // aktiver Lebensmittel-Such-Dialog
+      // Gewicht / Bewegung / Schlaf
+      weight: {},            // { 'YYYY-MM-DD': '70.3' }
+      movement: {},          // { 'YYYY-MM-DD': { steps:'', cardio:[{type,min}] } }
+      sleep: {},             // { 'YYYY-MM-DD': { from:'23:00', to:'07:00', quality:7 } }
     };
 
     function todayKey(d) {
@@ -602,53 +749,124 @@
         id: uid(),
         name: m.name,
         items: m.items.map(it => ({ id: uid(), food: it.food, amount: it.amount })),
+        done: false,
       }));
     }
 
-    function loadState() {
+    // ---- localStorage Wrapper ----
+    function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+    function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+    function lsDel(k) { try { localStorage.removeItem(k); } catch (e) {} }
+    // Namespaced Key fürs aktive Profil
+    function pk(name) { return 'eisern:u:' + state.profileId + ':' + name; }
+
+    // ---- Profile ----
+    function slugify(s) { return (s || '').toLowerCase().trim().replace(/[^a-z0-9äöü]+/g, '-').replace(/^-+|-+$/g, '') || 'user'; }
+    function loadProfiles() { try { return JSON.parse(lsGet('eisern:profiles')) || []; } catch (e) { return []; } }
+    function saveProfiles(list) { lsSet('eisern:profiles', JSON.stringify(list)); }
+
+    async function hashPw(pw, salt) {
       try {
-        const w = localStorage.getItem('eisern:workouts');
-        const c = localStorage.getItem('eisern:current');
-        const d = localStorage.getItem('eisern:installHintDismissed');
-        const mode = localStorage.getItem('eisern:mode');
-        const np = localStorage.getItem('eisern:nutritionPlan');
-        const nd = localStorage.getItem('eisern:nutritionDays');
-        if (w) state.workouts = JSON.parse(w);
-        if (c) state.current = JSON.parse(c);
-        if (d) state.installHintDismissed = JSON.parse(d);
-        if (mode === 'training' || mode === 'nutrition') state.mode = mode;
-        if (np) state.nutritionPlan = JSON.parse(np);
-        if (nd) state.nutritionDays = JSON.parse(nd);
-      } catch (e) { console.error('load error', e); }
-      // Baseline-Plan einmalig anlegen, falls noch keiner existiert
+        const data = new TextEncoder().encode(salt + ':' + pw);
+        const buf = await crypto.subtle.digest('SHA-256', data);
+        return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+      } catch (e) {
+        // Fallback (z.B. unsicherer Kontext): einfacher Hash
+        let h = 0; const s = salt + ':' + pw;
+        for (let i = 0; i < s.length; i++) { h = (h * 31 + s.charCodeAt(i)) | 0; }
+        return 'fb' + (h >>> 0).toString(16);
+      }
+    }
+
+    // Migration: vorhandene (alte, nicht-namespaced) Daten -> Profil "Chantal"
+    function migrateLegacyIfNeeded() {
+      const profiles = loadProfiles();
+      if (profiles.length > 0) return; // schon migriert / Profile vorhanden
+      const legacy = lsGet('eisern:workouts') || lsGet('eisern:nutritionDays') || lsGet('eisern:nutritionPlan');
+      if (!legacy) return; // frischer Start -> normaler Login / Profil-Anlage
+      const id = 'chantal';
+      profiles.push({ id, name: 'Chantal', salt: '', hash: '' }); // ohne Passwort, kann später gesetzt werden
+      saveProfiles(profiles);
+      if (legacy) {
+        const moves = ['workouts', 'current', 'nutritionPlan', 'nutritionDays', 'mode'];
+        moves.forEach(key => {
+          const v = lsGet('eisern:' + key);
+          if (v != null) { lsSet('eisern:u:' + id + ':' + key, v); lsDel('eisern:' + key); }
+        });
+      }
+      // Gewichtsdaten aus PDF als Startwerte (nur falls noch keine vorhanden)
+      const wKey = 'eisern:u:' + id + ':weight';
+      if (lsGet(wKey) == null) lsSet(wKey, JSON.stringify(SEED_WEIGHT));
+    }
+
+    function activateProfile(id) {
+      const p = loadProfiles().find(x => x.id === id);
+      if (!p) return;
+      state.profileId = p.id;
+      state.profileName = p.name;
+      lsSet('eisern:activeProfile', p.id);
+      loadProfileData();
+      render();
+    }
+
+    function logout() {
+      lsDel('eisern:activeProfile');
+      state.profileId = null;
+      state.profileName = null;
+      state.loginCreating = false;
+      state.loginError = '';
+      render();
+    }
+
+    function loadProfileData() {
+      // Reset auf Defaults
+      state.workouts = []; state.current = null; state.nutritionDays = {}; state.nutritionPlan = null;
+      state.customFoods = []; state.weight = {}; state.movement = {}; state.sleep = {};
+      state.mode = 'training'; state.view = 'home'; state.nutriView = 'day'; state.nutriDate = todayKey();
+      try {
+        const w = lsGet(pk('workouts')); if (w) state.workouts = JSON.parse(w);
+        const c = lsGet(pk('current')); if (c) state.current = JSON.parse(c);
+        const np = lsGet(pk('nutritionPlan')); if (np) state.nutritionPlan = JSON.parse(np);
+        const nd = lsGet(pk('nutritionDays')); if (nd) state.nutritionDays = JSON.parse(nd);
+        const cf = lsGet(pk('customFoods')); if (cf) state.customFoods = JSON.parse(cf);
+        const wt = lsGet(pk('weight')); if (wt) state.weight = JSON.parse(wt);
+        const mv = lsGet(pk('movement')); if (mv) state.movement = JSON.parse(mv);
+        const sl = lsGet(pk('sleep')); if (sl) state.sleep = JSON.parse(sl);
+        const mode = lsGet(pk('mode')); if (mode) state.mode = mode;
+      } catch (e) { console.error('load profile error', e); }
+      const d = lsGet('eisern:installHintDismissed'); if (d) state.installHintDismissed = JSON.parse(d);
       if (!state.nutritionPlan || !Array.isArray(state.nutritionPlan.meals)) {
         state.nutritionPlan = { meals: cloneMeals(NUTRITION_BASELINE) };
         saveNutritionPlan();
       }
+      migrateExerciseNames();
+      rebuildFoodIndex();
     }
 
-    function saveWorkouts() {
-      try { localStorage.setItem('eisern:workouts', JSON.stringify(state.workouts)); } catch (e) {}
+    // Alte englische Übungsnamen in gespeicherten Workouts auf Deutsch umstellen
+    function migrateExerciseNames() {
+      let changed = false;
+      const fix = w => (w.exercises || []).forEach(ex => {
+        if (EX_RENAME_MAP[ex.name]) { ex.name = EX_RENAME_MAP[ex.name]; changed = true; }
+        if (ex.originalName && EX_RENAME_MAP[ex.originalName]) { ex.originalName = EX_RENAME_MAP[ex.originalName]; changed = true; }
+      });
+      state.workouts.forEach(fix);
+      if (state.current) fix(state.current);
+      if (changed) { saveWorkouts(); saveCurrent(); }
     }
 
+    function saveWorkouts() { lsSet(pk('workouts'), JSON.stringify(state.workouts)); }
     function saveCurrent() {
-      try {
-        if (state.current) localStorage.setItem('eisern:current', JSON.stringify(state.current));
-        else localStorage.removeItem('eisern:current');
-      } catch (e) {}
+      if (state.current) lsSet(pk('current'), JSON.stringify(state.current));
+      else lsDel(pk('current'));
     }
-
-    function saveMode() {
-      try { localStorage.setItem('eisern:mode', state.mode); } catch (e) {}
-    }
-
-    function saveNutritionPlan() {
-      try { localStorage.setItem('eisern:nutritionPlan', JSON.stringify(state.nutritionPlan)); } catch (e) {}
-    }
-
-    function saveNutritionDays() {
-      try { localStorage.setItem('eisern:nutritionDays', JSON.stringify(state.nutritionDays)); } catch (e) {}
-    }
+    function saveMode() { lsSet(pk('mode'), state.mode); }
+    function saveNutritionPlan() { lsSet(pk('nutritionPlan'), JSON.stringify(state.nutritionPlan)); }
+    function saveNutritionDays() { lsSet(pk('nutritionDays'), JSON.stringify(state.nutritionDays)); }
+    function saveCustomFoods() { lsSet(pk('customFoods'), JSON.stringify(state.customFoods)); rebuildFoodIndex(); }
+    function saveWeight() { lsSet(pk('weight'), JSON.stringify(state.weight)); }
+    function saveMovement() { lsSet(pk('movement'), JSON.stringify(state.movement)); }
+    function saveSleep() { lsSet(pk('sleep'), JSON.stringify(state.sleep)); }
 
     // Tageseintrag anlegen (aus Baseline vorbefüllt), aber NICHT speichern bis bearbeitet
     function ensureDay(dateKey) {
@@ -668,7 +886,7 @@
 
     // Makros eines Lebensmittels berechnen
     function itemMacros(item) {
-      const f = FOOD_BY_NAME[item.food];
+      const f = findFood(item.food);
       const amt = parseFloat(item.amount) || 0;
       if (!f) return { kcal: 0, c: 0, p: 0, f: 0 };
       const c = f.c * amt, p = f.p * amt, fat = f.f * amt;
@@ -764,6 +982,13 @@
       trash: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>',
       share: '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle"><path d="M12 2v13"/><path d="m16 6-4-4-4 4"/><path d="M20 17v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2"/></svg>',
       edit: '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>',
+      dumbbellMini: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg>',
+      food: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h2a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>',
+      scale: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M8.5 9.5 12 12"/></svg>',
+      activity: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>',
+      moon: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>',
+      logout: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>',
+      search: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>',
     };
 
     // ========================================================
@@ -774,28 +999,47 @@
     // ========================================================
     // RENDER VIEWS
     // ========================================================
+    const TABS = [
+      { id: 'training', label: 'Training', icon: 'dumbbellMini' },
+      { id: 'nutrition', label: 'Ernährung', icon: 'food' },
+      { id: 'weight', label: 'Gewicht', icon: 'scale' },
+      { id: 'movement', label: 'Bewegung', icon: 'activity' },
+      { id: 'sleep', label: 'Schlaf', icon: 'moon' },
+    ];
+
     function renderHeader() {
       const v = state.view;
       const nv = state.nutriView;
-      const subNav = state.mode === 'training' ? `
-          <div class="nav">
+      let subNav = '';
+      if (state.mode === 'training') {
+        subNav = `
+          <div class="nav" style="margin-top:14px;">
             <button class="${v === 'home' ? 'active' : ''}" data-action="nav" data-view="home">${ICONS.calendar}<span>Start</span></button>
             <button class="${v === 'history' || v === 'history-detail' ? 'active' : ''}" data-action="nav" data-view="history">${ICONS.history}<span>Verlauf</span></button>
             <button class="${v === 'progress' ? 'active' : ''}" data-action="nav" data-view="progress">${ICONS.trending}<span>Fortschritt</span></button>
-          </div>
-      ` : `
-          <div class="nav">
+          </div>`;
+      } else if (state.mode === 'nutrition') {
+        subNav = `
+          <div class="nav" style="margin-top:14px;">
             <button class="${nv === 'day' ? 'active' : ''}" data-action="nutri-nav" data-view="day">${ICONS.calendar}<span>Tag</span></button>
             <button class="${nv === 'plan' ? 'active' : ''}" data-action="nutri-nav" data-view="plan">${ICONS.edit}<span>Plan</span></button>
             <button class="${nv === 'history' ? 'active' : ''}" data-action="nutri-nav" data-view="history">${ICONS.history}<span>Verlauf</span></button>
-          </div>
-      `;
+          </div>`;
+      }
+      const tabs = TABS.map(t => `
+        <button class="${state.mode === t.id ? 'active' : ''}" data-action="mode" data-mode="${t.id}">${ICONS[t.icon]}<span>${t.label}</span></button>
+      `).join('');
+      const initial = (state.profileName || '?').trim().charAt(0).toUpperCase();
       return `
-        <div class="header" style="flex-direction: column; align-items: stretch; gap: 16px;">
-          <div class="mode-switch">
-            <button class="${state.mode === 'training' ? 'active' : ''}" data-action="mode" data-mode="training">Training</button>
-            <button class="${state.mode === 'nutrition' ? 'active' : ''}" data-action="mode" data-mode="nutrition">Ernährung</button>
+        <div class="topbar">
+          <div class="who"><div class="dot">${esc(initial)}</div>${esc(state.profileName || '')}</div>
+          <div style="display:flex; gap:6px;">
+            <button class="logout-btn" data-action="set-password" aria-label="Passwort">🔑</button>
+            <button class="logout-btn" data-action="logout">${ICONS.logout}<span style="margin-left:6px;">Abmelden</span></button>
           </div>
+        </div>
+        <div class="header" style="flex-direction: column; align-items: stretch; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 20px; padding-bottom: 18px;">
+          <div class="tabbar">${tabs}</div>
           ${subNav}
         </div>
       `;
@@ -806,7 +1050,7 @@
       return `
         <div class="install-hint">
           <div>
-            <strong>Als App installieren:</strong> Tippe unten in Safari auf das Teilen-Symbol ${ICONS.share} und wähle "Zum Home-Bildschirm". Dann läuft EISERN wie eine echte App im Vollbild — perfekt fürs Gym.
+            <strong>Als App installieren:</strong> Tippe unten in Safari auf das Teilen-Symbol ${ICONS.share} und wähle "Zum Home-Bildschirm". Dann läuft die App wie eine echte App im Vollbild — perfekt fürs Gym.
           </div>
           <button class="close" data-action="dismiss-hint">×</button>
         </div>
@@ -1094,24 +1338,17 @@
     // ========================================================
     // RENDER — ERNÄHRUNG
     // ========================================================
-    function foodOptions(selected) {
-      return FOOD_DB.map(f => `<option value="${esc(f.name)}" ${f.name === selected ? 'selected' : ''}>${esc(f.name)}</option>`).join('');
-    }
-
     function renderMealsEditor(meals, ctx) {
       return meals.map((meal, mi) => {
         const mm = mealMacros(meal);
         const itemsHtml = meal.items.map((it, ii) => {
-          const f = FOOD_BY_NAME[it.food];
+          const f = findFood(it.food);
           const unit = f && f.piece ? 'Stk' : 'g';
           const m = itemMacros(it);
-          // Falls das Lebensmittel (noch) nicht in der DB ist, als eigene Option ergänzen
-          const opts = f ? foodOptions(it.food)
-                         : `<option value="${esc(it.food)}" selected>${esc(it.food)}</option>` + foodOptions(it.food);
           return `
             <div class="food-item">
               <div class="food-row">
-                <select class="food-select" data-nutri="food" data-ctx="${ctx}" data-meal="${mi}" data-item="${ii}">${opts}</select>
+                <button class="food-select" data-action="nutri-pick-food" data-ctx="${ctx}" data-meal="${mi}" data-item="${ii}" style="text-align:left; cursor:pointer; display:flex; align-items:center; gap:6px;">${ICONS.search}<span style="flex:1;">${esc(it.food)}</span></button>
                 <div class="food-amount-wrap">
                   <input class="food-amount" type="number" inputmode="decimal" step="${f && f.piece ? '1' : '0.1'}" min="0" value="${esc(it.amount)}" data-nutri="amount" data-ctx="${ctx}" data-meal="${mi}" data-item="${ii}" />
                   <span class="food-unit">${unit}</span>
@@ -1122,11 +1359,15 @@
             </div>
           `;
         }).join('');
+        const checkBtn = ctx === 'day'
+          ? `<button class="meal-check ${meal.done ? 'checked' : ''}" data-action="nutri-toggle-meal" data-meal="${mi}" aria-label="Mahlzeit abhaken">${ICONS.check}</button>`
+          : '';
         return `
-          <div class="meal-card">
+          <div class="meal-card ${ctx === 'day' && meal.done ? 'done' : ''}">
             <div class="meal-head">
               <div class="meal-name">${esc(meal.name)}</div>
               <div class="meal-kcal" data-meal-kcal="${mi}">${r0(mm.kcal)} kcal</div>
+              ${checkBtn}
               <button class="meal-rename" data-action="nutri-rename-meal" data-ctx="${ctx}" data-meal="${mi}" aria-label="Umbenennen">${ICONS.edit}</button>
               <button class="meal-del" data-action="nutri-del-meal" data-ctx="${ctx}" data-meal="${mi}" aria-label="Mahlzeit löschen">×</button>
             </div>
@@ -1157,9 +1398,11 @@
       const dateKey = state.nutriDate;
       const existing = state.nutritionDays[dateKey];
       const meals = existing ? existing.meals : cloneMeals(state.nutritionPlan.meals);
+      const completed = existing && existing.completed;
       const dt = new Date(dateKey + 'T00:00:00');
       const isToday = dateKey === todayKey();
       const label = dt.toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+      const doneCount = meals.filter(m => m.done).length;
       return `
         <div class="date-nav">
           <button data-action="nutri-date-prev" aria-label="Vorheriger Tag">‹</button>
@@ -1169,9 +1412,13 @@
         ${renderMealsEditor(meals, 'day')}
         <button class="add-meal-btn" data-action="nutri-add-meal" data-ctx="day">+ Mahlzeit hinzufügen</button>
         ${renderDayTotal(meals)}
-        <div style="text-align: center; margin-top: 16px;">
-          <button class="btn btn-danger" data-action="nutri-reset-day">Tag auf Baseline-Plan zurücksetzen</button>
+        <div style="margin-top: 16px; display:flex; flex-direction:column; gap:10px;">
+          <button class="btn btn-primary" data-action="nutri-save-day" style="justify-content:center;">
+            ${ICONS.check}${completed ? 'Tag gespeichert ✓ — erneut speichern' : 'Tag speichern' + (doneCount ? ' (' + doneCount + '/' + meals.length + ' abgehakt)' : '')}
+          </button>
+          <button class="btn btn-danger" data-action="nutri-reset-day" style="justify-content:center;">Tag auf Baseline-Plan zurücksetzen</button>
         </div>
+        <div style="text-align:center; font-size:11px; color:var(--text-dim); margin-top:10px;">Änderungen werden automatisch gespeichert. „Tag speichern" markiert den Tag als erledigt.</div>
       `;
     }
 
@@ -1252,29 +1499,380 @@
           }
         });
       });
-      document.querySelectorAll('select[data-nutri="food"]').forEach(sel => {
-        sel.addEventListener('change', e => {
-          const ctx = e.target.dataset.ctx;
-          const mi = parseInt(e.target.dataset.meal), ii = parseInt(e.target.dataset.item);
-          const meals = getMealsForCtx(ctx);
-          if (meals[mi]?.items[ii]) {
-            meals[mi].items[ii].food = e.target.value;
-            saveCtx(ctx);
-            render(); // Einheit (g/Stk) & Makros neu aufbauen
-          }
-        });
+    }
+
+    // ========================================================
+    // RENDER — LOGIN, GEWICHT, BEWEGUNG, SCHLAF, FOOD-SUCHE
+    // ========================================================
+    function renderLogin() {
+      const profiles = loadProfiles();
+      let body;
+      if (state.loginCreating || profiles.length === 0) {
+        body = `
+          <div class="login-form">
+            <div class="hero-label" style="text-align:center; margin-bottom:6px;">${profiles.length === 0 ? 'Erstes Profil anlegen' : 'Neues Profil'}</div>
+            <label>Name</label>
+            <input type="text" id="login-name" autocomplete="username" placeholder="z.B. Chantal" />
+            <label>Passwort (optional)</label>
+            <input type="password" id="login-pass" autocomplete="new-password" placeholder="leer lassen für kein Passwort" />
+            ${state.loginError ? `<div class="login-err">${esc(state.loginError)}</div>` : ''}
+            <div style="margin-top:16px;">
+              <button class="btn btn-primary" data-action="create-profile" style="width:100%; justify-content:center;">Profil erstellen</button>
+            </div>
+            ${profiles.length > 0 ? `<div style="text-align:center; margin-top:10px;"><button class="link-btn" data-action="login-back">Zurück zur Auswahl</button></div>` : ''}
+          </div>`;
+      } else {
+        const picks = profiles.map(p => `
+          <div class="profile-pick" data-action="pick-profile" data-id="${esc(p.id)}">
+            <div class="dot">${esc((p.name || '?').charAt(0).toUpperCase())}</div>
+            <div class="nm">${esc(p.name)}</div>
+            ${p.hash ? '🔒' : '<span style="color:var(--text-dim);font-size:11px;">kein Passwort</span>'}
+          </div>`).join('');
+        body = `
+          ${state.loginError ? `<div class="login-err">${esc(state.loginError)}</div>` : ''}
+          ${picks}
+          <div style="text-align:center; margin-top:14px;"><button class="link-btn" data-action="login-new">+ Neues Profil</button></div>`;
+      }
+      return `
+        <div class="login-wrap">
+          <div class="login-logo">
+            <div class="mark">${ICONS.dumbbell}</div>
+            <div class="ttl">TRAINING & ERNÄHRUNG</div>
+            <div class="sub">Wähle dein Profil — deine Daten bleiben privat auf diesem Gerät.</div>
+          </div>
+          ${body}
+        </div>`;
+    }
+
+    function attachLoginListeners() {
+      // Enter im Passwortfeld bei der Profilauswahl wird über das Prompt-Flow gehandhabt
+    }
+
+    // ---------- GEWICHT ----------
+    function renderWeight() {
+      const keys = Object.keys(state.weight).sort().reverse();
+      const vals = keys.map(k => parseFloat(state.weight[k])).filter(v => !isNaN(v));
+      const latest = keys.length ? parseFloat(state.weight[keys[0]]) : null;
+      const first = keys.length ? parseFloat(state.weight[keys[keys.length - 1]]) : null;
+      const diff = (latest != null && first != null) ? (latest - first) : null;
+      const today = todayKey();
+      const min = vals.length ? Math.min(...vals) : 0;
+      const max = vals.length ? Math.max(...vals) : 1;
+      const range = (max - min) || 1;
+      // Chart (älteste links)
+      const chartKeys = keys.slice(0, 30).reverse();
+      const bars = chartKeys.map(k => {
+        const v = parseFloat(state.weight[k]);
+        const h = 10 + ((v - min) / range) * 90;
+        return `<div class="bar" style="height:${h}%;" title="${esc(k)}: ${esc(state.weight[k])} kg"></div>`;
+      }).join('');
+      const list = keys.map(k => {
+        const dt = new Date(k + 'T00:00:00');
+        const ds = dt.toLocaleDateString('de-DE', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+        return `
+          <div class="log-item">
+            <div><div class="li-date">${esc(ds)}</div></div>
+            <div style="display:flex; align-items:center;">
+              <div class="li-val">${esc(state.weight[k])}<small> kg</small></div>
+              <button class="log-del" data-action="weight-del" data-date="${esc(k)}" aria-label="Löschen">${ICONS.trash}</button>
+            </div>
+          </div>`;
+      }).join('');
+      return `
+        <div class="hero-card">
+          <div class="hero-label">Gewicht</div>
+          <div class="hero-title" style="font-size:48px;">${latest != null ? esc(r1(latest)) : '—'}<span style="font-size:20px; color:var(--text-muted);"> kg</span></div>
+          <div class="hero-subtitle">${diff != null ? (diff <= 0 ? '▼ ' : '▲ ') + esc(r1(Math.abs(diff))) + ' kg seit Start · ' + keys.length + ' Einträge' : 'Noch keine Einträge'}</div>
+          ${vals.length > 1 ? `<div class="bar-chart" style="height:70px; margin-top:8px;">${bars}</div>` : ''}
+        </div>
+        <div class="log-form">
+          <div class="row2">
+            <div class="field-block"><label>Datum</label><input type="date" id="weight-date" value="${today}" /></div>
+            <div class="field-block"><label>Gewicht (kg)</label><input type="number" id="weight-val" inputmode="decimal" step="0.05" min="0" placeholder="z.B. 68.9" /></div>
+          </div>
+          <button class="btn btn-primary" data-action="weight-add" style="width:100%; justify-content:center;">${ICONS.check}Eintragen</button>
+        </div>
+        ${list || '<div class="empty-state"><div class="empty-icon">⚖️</div><div>Noch keine Gewichtseinträge.</div></div>'}
+      `;
+    }
+
+    // ---------- BEWEGUNG ----------
+    function renderMovement() {
+      const dateKey = state.nutriDate; // gemeinsamer Datums-Cursor
+      const entry = state.movement[dateKey] || { steps: '', cardio: [] };
+      const dt = new Date(dateKey + 'T00:00:00');
+      const isToday = dateKey === todayKey();
+      const label = dt.toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+      const cardioRows = (entry.cardio || []).map((c, i) => `
+        <div class="cardio-row">
+          <input type="text" placeholder="z.B. Laufband" value="${esc(c.type || '')}" data-mvc="type" data-i="${i}" />
+          <input type="number" inputmode="numeric" placeholder="Min" value="${esc(c.min || '')}" data-mvc="min" data-i="${i}" />
+          <button class="food-del" data-action="movement-del-cardio" data-i="${i}" aria-label="Entfernen">×</button>
+        </div>`).join('');
+      const totalCardio = (entry.cardio || []).reduce((s, c) => s + (parseInt(c.min) || 0), 0);
+      // Verlauf
+      const keys = Object.keys(state.movement).sort().reverse();
+      const list = keys.map(k => {
+        const e = state.movement[k];
+        const cardMin = (e.cardio || []).reduce((s, c) => s + (parseInt(c.min) || 0), 0);
+        const dd = new Date(k + 'T00:00:00').toLocaleDateString('de-DE', { weekday: 'short', day: 'numeric', month: 'short' });
+        const parts = [];
+        if (e.steps) parts.push(esc(e.steps) + ' Schritte');
+        if (cardMin) parts.push(cardMin + ' Min Cardio');
+        if (!parts.length) return '';
+        return `<div class="log-item" data-action="movement-open" data-date="${esc(k)}" style="cursor:pointer;"><div><div class="li-date">${esc(dd)}</div><div class="li-sub">${parts.join(' · ')}</div></div><div style="color:var(--text-dim);">›</div></div>`;
+      }).join('');
+      return `
+        <div class="date-nav">
+          <button data-action="nutri-date-prev" aria-label="Vorheriger Tag">‹</button>
+          <div class="date-label">${isToday ? 'Heute' : 'Tag'}<small>${esc(label)}</small></div>
+          <button data-action="nutri-date-next" aria-label="Nächster Tag">›</button>
+        </div>
+        <div class="log-form">
+          <div class="field-block"><label>Schritte</label><input type="number" inputmode="numeric" id="movement-steps" placeholder="z.B. 9000" value="${esc(entry.steps || '')}" /></div>
+          <label>Zusätzliches Cardio</label>
+          ${cardioRows || '<div style="font-size:12px; color:var(--text-dim); margin-bottom:8px;">Noch kein Cardio eingetragen.</div>'}
+          <button class="add-food-btn" data-action="movement-add-cardio">+ Cardio hinzufügen</button>
+          <button class="btn btn-primary" data-action="movement-save" style="width:100%; justify-content:center; margin-top:14px;">${ICONS.check}Speichern</button>
+          ${totalCardio ? `<div style="text-align:center; font-size:12px; color:var(--text-muted); margin-top:10px;">Cardio gesamt: <strong>${totalCardio} Min</strong></div>` : ''}
+        </div>
+        <div class="hero-label" style="margin-bottom:10px;">Verlauf</div>
+        ${list || '<div class="empty-state"><div class="empty-icon">🚶</div><div>Noch keine Bewegungsdaten.</div></div>'}
+      `;
+    }
+
+    // ---------- SCHLAF ----------
+    function sleepDuration(from, to) {
+      if (!from || !to) return null;
+      const [fh, fm] = from.split(':').map(Number);
+      const [th, tm] = to.split(':').map(Number);
+      if ([fh, fm, th, tm].some(isNaN)) return null;
+      let mins = (th * 60 + tm) - (fh * 60 + fm);
+      if (mins <= 0) mins += 24 * 60; // über Mitternacht
+      return mins;
+    }
+
+    function renderSleep() {
+      const dateKey = state.nutriDate;
+      const entry = state.sleep[dateKey] || { from: '23:00', to: '07:00', quality: 7 };
+      const dt = new Date(dateKey + 'T00:00:00');
+      const isToday = dateKey === todayKey();
+      const label = dt.toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+      const dur = sleepDuration(entry.from, entry.to);
+      const keys = Object.keys(state.sleep).sort().reverse();
+      const durs = keys.map(k => sleepDuration(state.sleep[k].from, state.sleep[k].to)).filter(v => v != null);
+      const avg = durs.length ? durs.reduce((a, b) => a + b, 0) / durs.length : null;
+      const list = keys.map(k => {
+        const e = state.sleep[k];
+        const d = sleepDuration(e.from, e.to);
+        const dd = new Date(k + 'T00:00:00').toLocaleDateString('de-DE', { weekday: 'short', day: 'numeric', month: 'short' });
+        return `<div class="log-item"><div><div class="li-date">${esc(dd)}</div><div class="li-sub">${esc(e.from)}–${esc(e.to)} Uhr · Qualität ${esc(e.quality)}/10</div></div><div style="display:flex; align-items:center;"><div class="li-val">${d != null ? fmtDuration(d) : '—'}</div><button class="log-del" data-action="sleep-del" data-date="${esc(k)}" aria-label="Löschen">${ICONS.trash}</button></div></div>`;
+      }).join('');
+      return `
+        <div class="date-nav">
+          <button data-action="nutri-date-prev" aria-label="Vorheriger Tag">‹</button>
+          <div class="date-label">${isToday ? 'Heute' : 'Tag'}<small>${esc(label)}</small></div>
+          <button data-action="nutri-date-next" aria-label="Nächster Tag">›</button>
+        </div>
+        <div class="log-form">
+          <div class="row2">
+            <div class="field-block"><label>Von</label><input type="time" id="sleep-from" value="${esc(entry.from)}" /></div>
+            <div class="field-block"><label>Bis</label><input type="time" id="sleep-to" value="${esc(entry.to)}" /></div>
+          </div>
+          <div class="field-block">
+            <label>Dauer</label>
+            <div class="li-val" id="sleep-dur" style="font-size:32px;">${dur != null ? fmtDuration(dur) : '—'}</div>
+          </div>
+          <label>Schlafqualität (1 = schlecht, 10 = super)</label>
+          <div class="range-wrap">
+            <input type="range" id="sleep-quality" min="1" max="10" step="1" value="${esc(entry.quality)}" />
+            <div class="range-val" id="sleep-quality-val">${esc(entry.quality)}</div>
+          </div>
+          <button class="btn btn-primary" data-action="sleep-save" style="width:100%; justify-content:center; margin-top:16px;">${ICONS.check}Speichern</button>
+        </div>
+        ${avg != null ? `<div style="text-align:center; font-size:13px; color:var(--text-muted); margin-bottom:14px;">Ø Schlaf: <strong>${fmtDuration(Math.round(avg))}</strong> über ${durs.length} Nächte</div>` : ''}
+        <div class="hero-label" style="margin-bottom:10px;">Verlauf</div>
+        ${list || '<div class="empty-state"><div class="empty-icon">🌙</div><div>Noch keine Schlafdaten.</div></div>'}
+      `;
+    }
+
+    function attachLogListeners() {
+      // Live-Dauer im Schlaf-Formular
+      const sf = document.getElementById('sleep-from'), st = document.getElementById('sleep-to');
+      const upd = () => { const d = sleepDuration(sf.value, st.value); const el = document.getElementById('sleep-dur'); if (el) el.textContent = d != null ? fmtDuration(d) : '—'; };
+      if (sf && st) { sf.addEventListener('input', upd); st.addEventListener('input', upd); }
+      const q = document.getElementById('sleep-quality');
+      if (q) q.addEventListener('input', e => { const el = document.getElementById('sleep-quality-val'); if (el) el.textContent = e.target.value; });
+    }
+
+    // Aktuelles Bewegungs-Formular auslesen (Schritte + Cardio-Zeilen)
+    function readMovementForm() {
+      const stepsEl = document.getElementById('movement-steps');
+      const steps = stepsEl ? stepsEl.value : '';
+      const cardio = [];
+      const types = document.querySelectorAll('[data-mvc="type"]');
+      const mins = document.querySelectorAll('[data-mvc="min"]');
+      types.forEach((t, i) => {
+        const type = t.value, min = mins[i] ? mins[i].value : '';
+        if (type || min) cardio.push({ type, min });
       });
+      return { steps, cardio };
+    }
+
+    // ---------- FOOD-SUCHE Logik ----------
+    async function searchOFF(q) {
+      // Open Food Facts (CORS-fähiger Such-Endpunkt). Zeitweise überlastet -> bis zu 2 Versuche.
+      const url = 'https://world.openfoodfacts.org/cgi/search.pl?search_terms=' + encodeURIComponent(q) +
+        '&search_simple=1&action=process&json=1&page_size=20&fields=product_name,product_name_de,brands,nutriments';
+      let data = null;
+      for (let attempt = 0; attempt < 2 && !data; attempt++) {
+        try {
+          const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
+          if (!res.ok) throw new Error('status ' + res.status);
+          data = await res.json();
+        } catch (e) {
+          if (attempt === 0) await new Promise(r => setTimeout(r, 800));
+        }
+      }
+      if (!data) return [];
+      const seen = new Set();
+      return (data.products || []).map(p => {
+        const n = p.nutriments || {};
+        let name = (p.product_name_de || p.product_name || '').trim();
+        const brand = (p.brands || '').split(',')[0].trim();
+        if (name && brand) name += ' (' + brand + ')';
+        const c = n['carbohydrates_100g'], pr = n['proteins_100g'], f = n['fat_100g'];
+        if (!name || c == null || pr == null || f == null) return null;
+        const key = name.toLowerCase();
+        if (seen.has(key)) return null;
+        seen.add(key);
+        return { name, c: c / 100, p: pr / 100, f: f / 100 };
+      }).filter(Boolean).slice(0, 8);
+    }
+
+    function addCustomFood(food) {
+      if (!FOOD_BY_NAME[food.name] && !state.customFoods.find(f => f.name === food.name)) {
+        state.customFoods.push(food);
+        saveCustomFoods();
+      }
+    }
+
+    function applyFoodChoice(name) {
+      const fs = state.foodSearch;
+      if (!fs) return;
+      const meals = getMealsForCtx(fs.ctx);
+      if (meals[fs.mi] && meals[fs.mi].items[fs.ii]) {
+        meals[fs.mi].items[fs.ii].food = name;
+        saveCtx(fs.ctx);
+      }
+      state.foodSearch = null;
+      render();
+    }
+
+    // ---------- FOOD-SUCHE (Modal) ----------
+    function renderFoodSearchModal() {
+      const fs = state.foodSearch;
+      let results = '';
+      if (fs.query && fs.query.trim().length >= 1) {
+        const q = fs.query.trim().toLowerCase();
+        const local = FOOD_NAMES_SORTED.filter(n => n.toLowerCase().includes(q)).slice(0, 12);
+        if (local.length) {
+          results += `<div class="fs-section">Aus deiner Datenbank</div>`;
+          results += local.map(n => {
+            const f = findFood(n);
+            const per = f.piece ? '/Stk' : '/100g';
+            const mul = f.piece ? 1 : 100;
+            return `<div class="fs-result" data-action="fs-pick-local" data-name="${esc(n)}">
+              <div><div class="fr-name">${esc(n)}</div><div class="fr-macros">C ${r1(f.c * mul)} · P ${r1(f.p * mul)} · F ${r1(f.f * mul)} ${per}</div></div>
+              <div class="fr-tag fs-tag-db">DB</div></div>`;
+          }).join('');
+        }
+        if (fs.loading) {
+          results += `<div class="fs-spinner">Suche online …</div>`;
+        } else if (fs.offResults && fs.offResults.length) {
+          results += `<div class="fs-section">Online gefunden (Open Food Facts)</div>`;
+          results += fs.offResults.map((r, i) => `
+            <div class="fs-result" data-action="fs-pick-off" data-i="${i}">
+              <div><div class="fr-name">${esc(r.name)}</div><div class="fr-macros">C ${r1(r.c * 100)} · P ${r1(r.p * 100)} · F ${r1(r.f * 100)} /100g</div></div>
+              <div class="fr-tag fs-tag-off">Online</div></div>`).join('');
+        } else if (fs.searched && !local.length) {
+          results += `<div class="fs-hint">⚠ „${esc(fs.query)}" ist noch nicht in der Datenbank und wurde online nicht gefunden. Du kannst die Makros (pro 100g) selbst eintragen — das Lebensmittel wird dann gespeichert.</div>`;
+        }
+      }
+      const showManual = fs.query && fs.query.trim().length >= 1;
+      return `
+        <div class="modal-overlay" data-action="fs-close-bg">
+          <div class="modal" data-stop="1">
+            <div class="modal-head">
+              <div class="ttl">Lebensmittel wählen</div>
+              <button class="modal-close" data-action="fs-close">×</button>
+            </div>
+            <input type="text" class="food-search-input" id="fs-input" placeholder="Suchen oder neu eingeben…" value="${esc(fs.query || '')}" autocomplete="off" />
+            <div class="fs-hint">Tippe einen Namen. Treffer aus deiner DB erscheinen sofort; sonst kannst du online suchen oder selbst anlegen.</div>
+            ${fs.query && fs.query.trim() && !fs.searched ? `<button class="btn btn-ghost" data-action="fs-online" style="width:100%; justify-content:center; margin-bottom:8px;">${ICONS.search}Online suchen: „${esc(fs.query.trim())}"</button>` : ''}
+            ${results}
+            ${showManual ? `
+              <div class="fs-manual">
+                <div class="fs-section" style="margin-top:0;">Selbst anlegen (pro 100g)</div>
+                <input type="text" id="fs-m-name" placeholder="Name" value="${esc(fs.query.trim())}" style="margin-bottom:8px;" />
+                <div class="row3">
+                  <input type="number" id="fs-m-c" inputmode="decimal" placeholder="Carbs" />
+                  <input type="number" id="fs-m-p" inputmode="decimal" placeholder="Protein" />
+                  <input type="number" id="fs-m-f" inputmode="decimal" placeholder="Fett" />
+                </div>
+                <button class="btn btn-primary" data-action="fs-add-manual" style="width:100%; justify-content:center; margin-top:10px;">Hinzufügen & verwenden</button>
+              </div>` : ''}
+          </div>
+        </div>`;
+    }
+
+    function attachFoodSearchListeners() {
+      const inp = document.getElementById('fs-input');
+      if (!inp) return;
+      inp.addEventListener('input', e => {
+        state.foodSearch.query = e.target.value;
+        state.foodSearch.searched = false;
+        state.foodSearch.offResults = null;
+        // nur die Ergebnisliste/Manual neu rendern wäre ideal; wir rendern das Modal neu und halten Fokus
+        rerenderFoodModal(true);
+      });
+      // Fokus ans Ende
+      inp.focus();
+      const val = inp.value; inp.value = ''; inp.value = val;
+    }
+
+    function rerenderFoodModal(keepFocus) {
+      const overlay = document.querySelector('.modal-overlay');
+      if (!overlay) { render(); return; }
+      const sel = document.getElementById('fs-input');
+      const caret = sel ? sel.selectionStart : null;
+      overlay.outerHTML = renderFoodSearchModal();
+      attachFoodSearchListeners();
     }
 
     // ========================================================
     // MAIN RENDER
     // ========================================================
     function render() {
+      // Kein aktives Profil -> Login-Screen
+      if (!state.profileId) {
+        document.getElementById('app').innerHTML = `<div class="container">${renderLogin()}</div>`;
+        attachLoginListeners();
+        window.scrollTo({ top: 0 });
+        return;
+      }
+
       let content = '';
       if (state.mode === 'nutrition') {
         if (state.nutriView === 'day') content = renderNutriDay();
         else if (state.nutriView === 'plan') content = renderNutriPlan();
         else if (state.nutriView === 'history') content = renderNutriHistory();
+      } else if (state.mode === 'weight') {
+        content = renderWeight();
+      } else if (state.mode === 'movement') {
+        content = renderMovement();
+      } else if (state.mode === 'sleep') {
+        content = renderSleep();
       } else {
         if (state.view === 'home') content = renderHome();
         else if (state.view === 'workout') content = renderWorkout();
@@ -1283,9 +1881,12 @@
         else if (state.view === 'progress') content = renderProgress();
       }
 
-      document.getElementById('app').innerHTML = `<div class="container">${renderHeader()}${content}</div>`;
+      const modal = state.foodSearch ? renderFoodSearchModal() : '';
+      document.getElementById('app').innerHTML = `<div class="container">${renderHeader()}${content}</div>${modal}`;
       attachInputListeners();
       attachNutriListeners();
+      attachLogListeners();
+      attachFoodSearchListeners();
       window.scrollTo({ top: 0 });
     }
 
@@ -1455,6 +2056,128 @@
           saveNutritionDays();
           render();
         }
+      } else if (action === 'nutri-toggle-meal') {
+        const mi = parseInt(target.dataset.meal);
+        const day = ensureDay(state.nutriDate);
+        if (day.meals[mi]) { day.meals[mi].done = !day.meals[mi].done; saveNutritionDays(); render(); }
+      } else if (action === 'nutri-save-day') {
+        const day = ensureDay(state.nutriDate);
+        day.completed = true;
+        day.completedAt = new Date().toISOString();
+        saveNutritionDays();
+        render();
+      } else if (action === 'nutri-pick-food') {
+        state.foodSearch = { ctx: target.dataset.ctx, mi: parseInt(target.dataset.meal), ii: parseInt(target.dataset.item), query: '', offResults: null, loading: false, searched: false };
+        render();
+      } else if (action === 'fs-close') {
+        state.foodSearch = null; render();
+      } else if (action === 'fs-close-bg') {
+        if (e.target === target) { state.foodSearch = null; render(); }
+      } else if (action === 'fs-online') {
+        const q = (state.foodSearch.query || '').trim();
+        if (!q) return;
+        state.foodSearch.loading = true; state.foodSearch.searched = false; state.foodSearch.offResults = null;
+        rerenderFoodModal();
+        searchOFF(q).then(res => { state.foodSearch.offResults = res; state.foodSearch.loading = false; state.foodSearch.searched = true; rerenderFoodModal(); })
+          .catch(() => { state.foodSearch.offResults = []; state.foodSearch.loading = false; state.foodSearch.searched = true; rerenderFoodModal(); });
+      } else if (action === 'fs-pick-local') {
+        applyFoodChoice(target.dataset.name);
+      } else if (action === 'fs-pick-off') {
+        const r = state.foodSearch.offResults[parseInt(target.dataset.i)];
+        if (r) { addCustomFood({ name: r.name, c: r.c, p: r.p, f: r.f }); applyFoodChoice(r.name); }
+      } else if (action === 'fs-add-manual') {
+        const name = (document.getElementById('fs-m-name').value || '').trim();
+        if (!name) { alert('Bitte einen Namen eingeben.'); return; }
+        const c = parseFloat(document.getElementById('fs-m-c').value) || 0;
+        const p = parseFloat(document.getElementById('fs-m-p').value) || 0;
+        const f = parseFloat(document.getElementById('fs-m-f').value) || 0;
+        addCustomFood({ name, c: c / 100, p: p / 100, f: f / 100 });
+        applyFoodChoice(name);
+      } else if (action === 'set-password') {
+        const profiles = loadProfiles();
+        const p = profiles.find(x => x.id === state.profileId);
+        if (!p) return;
+        const doSet = () => {
+          const np = prompt('Neues Passwort (leer lassen = kein Passwort):', '');
+          if (np === null) return;
+          if (np === '') { p.salt = ''; p.hash = ''; saveProfiles(profiles); alert('Passwort entfernt.'); return; }
+          const salt = uid() + uid();
+          hashPw(np, salt).then(h => { p.salt = salt; p.hash = h; saveProfiles(profiles); alert('Passwort gespeichert.'); });
+        };
+        if (p.hash) {
+          const cur = prompt('Aktuelles Passwort:');
+          if (cur === null) return;
+          hashPw(cur, p.salt).then(h => { if (h === p.hash) doSet(); else alert('Falsches Passwort.'); });
+        } else doSet();
+      } else if (action === 'logout') {
+        logout();
+      } else if (action === 'pick-profile') {
+        const id = target.dataset.id;
+        const p = loadProfiles().find(x => x.id === id);
+        if (!p) return;
+        if (p.hash) {
+          const pw = prompt('Passwort für ' + p.name + ':');
+          if (pw === null) return;
+          hashPw(pw, p.salt).then(h => {
+            if (h === p.hash) { state.loginError = ''; activateProfile(id); }
+            else { state.loginError = 'Falsches Passwort.'; render(); }
+          });
+        } else { state.loginError = ''; activateProfile(id); }
+      } else if (action === 'login-new') {
+        state.loginCreating = true; state.loginError = ''; render();
+      } else if (action === 'login-back') {
+        state.loginCreating = false; state.loginError = ''; render();
+      } else if (action === 'create-profile') {
+        const name = (document.getElementById('login-name').value || '').trim();
+        const pass = document.getElementById('login-pass').value || '';
+        if (!name) { state.loginError = 'Bitte einen Namen eingeben.'; render(); return; }
+        const profiles = loadProfiles();
+        let base = slugify(name), id = base, n = 1;
+        while (profiles.find(p => p.id === id)) { id = base + '-' + (++n); }
+        const finish = (salt, hash) => {
+          profiles.push({ id, name, salt, hash });
+          saveProfiles(profiles);
+          state.loginCreating = false; state.loginError = '';
+          activateProfile(id);
+        };
+        if (pass) { const salt = uid() + uid(); hashPw(pass, salt).then(h => finish(salt, h)); }
+        else finish('', '');
+      } else if (action === 'weight-add') {
+        const d = document.getElementById('weight-date').value;
+        const v = document.getElementById('weight-val').value;
+        if (!d || v === '') return;
+        state.weight[d] = String(parseFloat(v));
+        saveWeight(); render();
+      } else if (action === 'weight-del') {
+        const d = target.dataset.date;
+        if (confirm('Eintrag vom ' + d + ' löschen?')) { delete state.weight[d]; saveWeight(); render(); }
+      } else if (action === 'movement-save') {
+        const f = readMovementForm();
+        if (!f.steps && f.cardio.length === 0) delete state.movement[state.nutriDate];
+        else state.movement[state.nutriDate] = f;
+        saveMovement(); render();
+      } else if (action === 'movement-add-cardio') {
+        const f = readMovementForm();
+        f.cardio.push({ type: '', min: '' });
+        state.movement[state.nutriDate] = f;
+        saveMovement(); render();
+      } else if (action === 'movement-del-cardio') {
+        const i = parseInt(target.dataset.i);
+        const f = readMovementForm();
+        f.cardio.splice(i, 1);
+        state.movement[state.nutriDate] = f;
+        saveMovement(); render();
+      } else if (action === 'movement-open') {
+        state.nutriDate = target.dataset.date; render();
+      } else if (action === 'sleep-save') {
+        const from = document.getElementById('sleep-from').value;
+        const to = document.getElementById('sleep-to').value;
+        const quality = parseInt(document.getElementById('sleep-quality').value) || 7;
+        state.sleep[state.nutriDate] = { from, to, quality };
+        saveSleep(); render();
+      } else if (action === 'sleep-del') {
+        const d = target.dataset.date;
+        if (confirm('Schlafeintrag vom ' + d + ' löschen?')) { delete state.sleep[d]; saveSleep(); render(); }
       }
     }
 
@@ -1498,8 +2221,19 @@
     // INIT
     // ========================================================
     document.addEventListener('click', handleClick);
-    loadState();
-    render();
+
+    function bootstrap() {
+      migrateLegacyIfNeeded();
+      const profiles = loadProfiles();
+      const active = lsGet('eisern:activeProfile');
+      if (active && profiles.find(p => p.id === active)) {
+        activateProfile(active);
+      } else {
+        state.profileId = null;
+        render();
+      }
+    }
+    bootstrap();
 
     // Service worker
     if ('serviceWorker' in navigator) {
