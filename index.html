@@ -785,7 +785,7 @@
       const legacy = lsGet('eisern:workouts') || lsGet('eisern:nutritionDays') || lsGet('eisern:nutritionPlan');
       if (!legacy) return; // frischer Start -> normaler Login / Profil-Anlage
       const id = 'chantal';
-      profiles.push({ id, name: 'Chantal', salt: '', hash: '' }); // ohne Passwort, kann später gesetzt werden
+      profiles.push({ id, name: 'Chanti', salt: '', hash: '' }); // ohne Passwort, kann später gesetzt werden
       saveProfiles(profiles);
       if (legacy) {
         const moves = ['workouts', 'current', 'nutritionPlan', 'nutritionDays', 'mode'];
@@ -1032,7 +1032,9 @@
       const initial = (state.profileName || '?').trim().charAt(0).toUpperCase();
       return `
         <div class="topbar">
-          <div class="who"><div class="dot">${esc(initial)}</div>${esc(state.profileName || '')}</div>
+          <div class="who"><div class="dot">${esc(initial)}</div>${esc(state.profileName || '')}
+            <button class="logout-btn" data-action="rename-profile" aria-label="Name ändern" style="padding:5px 8px; margin-left:4px;">${ICONS.edit}</button>
+          </div>
           <div style="display:flex; gap:6px;">
             <button class="logout-btn" data-action="set-password" aria-label="Passwort">🔑</button>
             <button class="logout-btn" data-action="logout">${ICONS.logout}<span style="margin-left:6px;">Abmelden</span></button>
@@ -2093,6 +2095,18 @@
         const f = parseFloat(document.getElementById('fs-m-f').value) || 0;
         addCustomFood({ name, c: c / 100, p: p / 100, f: f / 100 });
         applyFoodChoice(name);
+      } else if (action === 'rename-profile') {
+        const profiles = loadProfiles();
+        const p = profiles.find(x => x.id === state.profileId);
+        if (!p) return;
+        const nn = prompt('Profilnamen ändern:', p.name);
+        if (nn === null) return;
+        const t = nn.trim();
+        if (!t) return;
+        p.name = t;
+        saveProfiles(profiles);
+        state.profileName = t;
+        render();
       } else if (action === 'set-password') {
         const profiles = loadProfiles();
         const p = profiles.find(x => x.id === state.profileId);
