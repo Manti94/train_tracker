@@ -727,6 +727,7 @@
       nutriDate: todayKey(),
       customFoods: [],       // [{name,c,p,f,piece?}]
       foodSearch: null,      // aktiver Lebensmittel-Such-Dialog
+      showBackup: false,     // Backup/Wiederherstellen-Dialog
       // Gewicht / Bewegung / Schlaf
       weight: {},            // { 'YYYY-MM-DD': '70.3' }
       movement: {},          // { 'YYYY-MM-DD': { steps:'', cardio:[{type,min}] } }
@@ -989,6 +990,7 @@
       moon: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>',
       logout: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>',
       search: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>',
+      backup: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>',
     };
 
     // ========================================================
@@ -1036,6 +1038,7 @@
             <button class="logout-btn" data-action="rename-profile" aria-label="Name ändern" style="padding:5px 8px; margin-left:4px;">${ICONS.edit}</button>
           </div>
           <div style="display:flex; gap:6px;">
+            <button class="logout-btn" data-action="open-backup" aria-label="Backup">${ICONS.backup}</button>
             <button class="logout-btn" data-action="set-password" aria-label="Passwort">🔑</button>
             <button class="logout-btn" data-action="logout">${ICONS.logout}<span style="margin-left:6px;">Abmelden</span></button>
           </div>
@@ -1852,6 +1855,85 @@
       attachFoodSearchListeners();
     }
 
+    // ---------- BACKUP / WIEDERHERSTELLEN ----------
+    function buildBackup() {
+      return {
+        app: 'training-tracker', version: 1,
+        profile: state.profileName,
+        exportedAt: new Date().toISOString(),
+        data: {
+          workouts: state.workouts,
+          current: state.current,
+          nutritionPlan: state.nutritionPlan,
+          nutritionDays: state.nutritionDays,
+          customFoods: state.customFoods,
+          weight: state.weight,
+          movement: state.movement,
+          sleep: state.sleep,
+          mode: state.mode,
+        },
+      };
+    }
+
+    function backupSummary(d) {
+      const w = (d.workouts || []).filter(x => x && x.completedAt).length;
+      const nd = Object.keys(d.nutritionDays || {}).length;
+      const wt = Object.keys(d.weight || {}).length;
+      return `${w} Trainings · ${nd} Ernährungs-Tage · ${wt} Gewichts-Einträge`;
+    }
+
+    function applyBackup(parsed, replace) {
+      const d = parsed.data || {};
+      if (d.workouts) { state.workouts = d.workouts; saveWorkouts(); }
+      if ('current' in d) { state.current = d.current; saveCurrent(); }
+      if (d.nutritionPlan) { state.nutritionPlan = d.nutritionPlan; saveNutritionPlan(); }
+      if (d.nutritionDays) { state.nutritionDays = d.nutritionDays; saveNutritionDays(); }
+      if (d.customFoods) { state.customFoods = d.customFoods; saveCustomFoods(); }
+      if (d.weight) { state.weight = d.weight; saveWeight(); }
+      if (d.movement) { state.movement = d.movement; saveMovement(); }
+      if (d.sleep) { state.sleep = d.sleep; saveSleep(); }
+      migrateExerciseNames();
+      rebuildFoodIndex();
+    }
+
+    function renderBackupModal() {
+      const json = JSON.stringify(buildBackup());
+      const sum = backupSummary(buildBackup().data);
+      return `
+        <div class="modal-overlay" data-action="backup-close-bg">
+          <div class="modal" data-stop="1">
+            <div class="modal-head">
+              <div class="ttl">Backup & Wiederherstellen</div>
+              <button class="modal-close" data-action="backup-close">×</button>
+            </div>
+            <div class="fs-section" style="margin-top:0;">Daten dieses Profils sichern</div>
+            <div class="fs-hint">Profil <strong>${esc(state.profileName || '')}</strong> · ${esc(sum)}.<br/>So überträgst du Daten z.B. von der Home-Bildschirm-App nach Safari: hier <em>Text kopieren</em>, im anderen Browser unten <em>einfügen & wiederherstellen</em>.</div>
+            <textarea id="backup-text" readonly style="width:100%; height:90px; font-size:11px; font-family:monospace; border:1px solid var(--border); border-radius:10px; padding:10px; background:#fff; -webkit-appearance:none;">${esc(json)}</textarea>
+            <div style="display:flex; gap:8px; margin-top:8px;">
+              <button class="btn btn-primary" data-action="backup-copy" style="flex:1; justify-content:center;">Text kopieren</button>
+              <button class="btn btn-ghost" data-action="backup-file" style="flex:1; justify-content:center;">Als Datei</button>
+            </div>
+            <div class="fs-section">Backup einspielen (ersetzt die Daten dieses Profils)</div>
+            <textarea id="restore-text" placeholder="Backup-Text hier einfügen…" style="width:100%; height:90px; font-size:11px; font-family:monospace; border:1px solid var(--border); border-radius:10px; padding:10px; background:#fff; -webkit-appearance:none;"></textarea>
+            <input type="file" id="restore-file" accept="application/json,.json" style="margin-top:8px; font-size:12px;" />
+            <button class="btn btn-primary" data-action="backup-restore" style="width:100%; justify-content:center; margin-top:10px;">${ICONS.check}Einfügen & wiederherstellen</button>
+          </div>
+        </div>`;
+    }
+
+    function attachBackupListeners() {
+      const fileInp = document.getElementById('restore-file');
+      if (fileInp) {
+        fileInp.addEventListener('change', e => {
+          const f = e.target.files && e.target.files[0];
+          if (!f) return;
+          const reader = new FileReader();
+          reader.onload = () => { const ta = document.getElementById('restore-text'); if (ta) ta.value = reader.result; };
+          reader.readAsText(f);
+        });
+      }
+    }
+
     // ========================================================
     // MAIN RENDER
     // ========================================================
@@ -1883,12 +1965,15 @@
         else if (state.view === 'progress') content = renderProgress();
       }
 
-      const modal = state.foodSearch ? renderFoodSearchModal() : '';
+      let modal = '';
+      if (state.foodSearch) modal = renderFoodSearchModal();
+      else if (state.showBackup) modal = renderBackupModal();
       document.getElementById('app').innerHTML = `<div class="container">${renderHeader()}${content}</div>${modal}`;
       attachInputListeners();
       attachNutriListeners();
       attachLogListeners();
       attachFoodSearchListeners();
+      attachBackupListeners();
       window.scrollTo({ top: 0 });
     }
 
@@ -2095,6 +2180,41 @@
         const f = parseFloat(document.getElementById('fs-m-f').value) || 0;
         addCustomFood({ name, c: c / 100, p: p / 100, f: f / 100 });
         applyFoodChoice(name);
+      } else if (action === 'open-backup') {
+        state.showBackup = true; render();
+      } else if (action === 'backup-close') {
+        state.showBackup = false; render();
+      } else if (action === 'backup-close-bg') {
+        if (e.target === target) { state.showBackup = false; render(); }
+      } else if (action === 'backup-copy') {
+        const ta = document.getElementById('backup-text');
+        const txt = ta ? ta.value : '';
+        const done = () => alert('Backup-Text kopiert. Jetzt im anderen Browser/Profil unten einfügen und „Einfügen & wiederherstellen" tippen.');
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(txt).then(done).catch(() => { if (ta) { ta.focus(); ta.select(); document.execCommand('copy'); } done(); });
+        } else if (ta) { ta.focus(); ta.select(); document.execCommand('copy'); done(); }
+      } else if (action === 'backup-file') {
+        const json = JSON.stringify(buildBackup(), null, 2);
+        const blob = new Blob([json], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'training-backup-' + slugify(state.profileName || 'profil') + '-' + todayKey() + '.json';
+        document.body.appendChild(a); a.click();
+        setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+      } else if (action === 'backup-restore') {
+        const ta = document.getElementById('restore-text');
+        const raw = ta ? ta.value.trim() : '';
+        if (!raw) { alert('Bitte zuerst den Backup-Text einfügen (oder eine Datei wählen).'); return; }
+        let parsed;
+        try { parsed = JSON.parse(raw); } catch (e) { alert('Das ist kein gültiges Backup (Text konnte nicht gelesen werden).'); return; }
+        if (!parsed || parsed.app !== 'training-tracker' || !parsed.data) { alert('Das ist kein gültiges Backup dieser App.'); return; }
+        if (!confirm('Backup von "' + (parsed.profile || '?') + '" einspielen?\n' + backupSummary(parsed.data) + '\n\nDie aktuellen Daten dieses Profils (' + (state.profileName || '') + ') werden ersetzt.')) return;
+        applyBackup(parsed, true);
+        state.showBackup = false;
+        state.mode = 'training'; state.view = 'history';
+        render();
+        alert('Backup wiederhergestellt ✓');
       } else if (action === 'rename-profile') {
         const profiles = loadProfiles();
         const p = profiles.find(x => x.id === state.profileId);
